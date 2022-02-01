@@ -51,9 +51,9 @@ trait List [+A] {
 
 
 object List {
-  def apply[A] (items: A*): List[A] = ???
-//    if (items.isEmpty) Nil()
-//    else apply(items.tail).cons(items.head)
+  def apply[A] (items: A*): List[A] =
+    if (items.isEmpty) Nil()
+    else apply(items.tail: _*).cons(items.head)
 
   def fill [A] (value: A)(size: Int): List[A] =
     if(size <= 0) Nil()
